@@ -3,13 +3,9 @@ package com.hermes.hermes.mapper;
 import com.hermes.hermes.dto.User;
 import org.apache.ibatis.annotations.Mapper;
 
-import java.util.List;
-
 @Mapper
 public interface UserMapper {
-    List<User> getAllUsers();
-
     void insertUser(User user);
-
-
+    String getImage(int productId);
+    User login(String user_id, String user_pw);
 }
