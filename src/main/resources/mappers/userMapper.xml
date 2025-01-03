@@ -9,10 +9,9 @@
         VALUES (NULL, #{user_id}, #{user_pw}, #{user_name}, #{user_verification_answer});
     </insert>
 
-    <select id="login">
-        SELECT *
+    <select id="checkDuplicatedUserId">
+        SELECT COUNT(*)
         FROM USER
         WHERE user_id = #{user_id}
-          AND user_pw = #{user_pw}
     </select>
 </mapper>

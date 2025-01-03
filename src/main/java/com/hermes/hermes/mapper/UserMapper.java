@@ -7,5 +7,5 @@ import org.apache.ibatis.annotations.Mapper;
 public interface UserMapper {
     void insertUser(User user);
     String getImage(int productId);
-    User login(String user_id, String user_pw);
+    int checkDuplicatedUserId(String user_id);
 }

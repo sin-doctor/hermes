@@ -9,14 +9,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
-    @Override
-    public User loginUser(String user_id, String user_pw) {
-        User user = userMapper.login(user_id, user_pw);
-        if (user != null && isPasswordValid(user_pw, user.getUser_pw())) {
-            return user;
-        }
-        return null;
-    }
     private boolean isPasswordValid(String inputPassword, String storedPassword) {
         return inputPassword.equals(storedPassword);
     }
@@ -30,4 +22,17 @@ public class UserServiceImpl implements UserService {
     public String getImage(int productId) {
         return userMapper.getImage(productId);
     }
+
+    /**
+     *
+     * @param user_id
+     * @return
+     */
+    @Override
+    public boolean checkDuplicatedUserId(String user_id) {
+        boolean duplicated = userMapper.checkDuplicatedUserId(user_id) > 0;
+        System.out.println("중복 확인 : "+duplicated);
+        return duplicated;
+    }
+
 }

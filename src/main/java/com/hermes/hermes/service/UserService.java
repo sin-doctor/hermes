@@ -5,5 +5,5 @@ import com.hermes.hermes.dto.User;
 public interface UserService {
     void insertUser(User user);
     String getImage(int productId);
-    User loginUser(String userId, String password);
+    boolean checkDuplicatedUserId(String user_id);
 }
